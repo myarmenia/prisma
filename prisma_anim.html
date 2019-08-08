@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="style.css">
+	<style>
+	.container_anim {
+	width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    position: fixed;
+    perspective: 300px;  
+    perspective-origin: 50% 40%;
+    left: -52px;
+    top: -99px;
+}
+
+.side {
+  position: absolute;
+    left: 140px;
+    top: 127px;
+    width: 0;
+    height: 0;
+	background-image: url(./side1.png);
+    background-size: 66px;
+    background-repeat: no-repeat;
+    background-position: -35px 54px;
+    border-left: 74px solid #c5818100;
+    border-right: 74px solid transparent;
+    border-bottom: 148px solid #cccccc26;
+    transform-origin: 50% 0%;
+    animation: spin 5s infinite linear;
+}
+
+.back {
+  animation-delay: -2.5s;
+  
+}
+
+.right {
+  animation-delay: -1.25s;
+}
+
+.left {
+  animation-delay: -3.75s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg) rotateX(30deg);
+    /*border-bottom-color: #1abcff;*/
+  }
+  25% {
+    transform: rotateY(90deg) rotateX(30deg);
+   /* border-bottom-color: #00a2e6;*/
+    opacity: 1;
+  }
+  25.1% {
+    opacity: 0;
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(30deg);
+    /*border-bottom-color: #0089c2;*/
+  }
+  74.9% {
+    opacity: 0;
+  }
+  75% {
+    transform: rotateY(270deg) rotateX(30deg);
+    /*border-bottom-color: #007eb3;*/
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(30deg);
+   /* border-bottom-color: #1abcff;*/
+  }
+}
+.shadow {
+	
+	
+	position: absolute;
+    top: 314px;
+    left: 204px;
+    width: 51px;
+    height: 54px;
+    background: url(sis-quantitative-market-research.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #bbbbbbbf;
+    box-shadow: 0 0 40px 40px #bbbbbbbf;
+    animation: shadow 5s infinite linear;
+	
+	
+	
+  /*position: absolute;
+  top: 300px;
+  left: 175px;
+ width: 76px;
+    height: 84px;
+    background: url(sis-quantitative-market-research.png);
+    background-size: 100%;
+	background-repeat:no-repeat;
+  background-color: #bbb;
+  box-shadow: 0 0 40px 40px #bbb;
+  animation: shadow 5s infinite linear;*/
+  
+  
+  
+}
+
+@keyframes shadow {
+  0% {
+    transform: rotateX(90deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(90deg) rotateZ(-360deg);
+  }
+}
+	
+	
+	</style>
+</head>
+<body>		
+				
+<div  id="main_section" class="container_anim">
+  <div class="side left"></div>
+  <div class="side front"></div>
+  <div class="side right"></div>
+  <div class="side back"></div>  
+  <div class="shadow"></div>
+</div>
+<script>
+var side=document.getElementsByClassName('side');
+var left=document.getElementsByClassName('left')[0];
+var main=document.getElementById('main_section');
+var arr = Array.from(side);
+var front=document.getElementsByClassName('front')[0];
+var right=document.getElementsByClassName('right')[0];
+var back=document.getElementsByClassName('back')[0];
+
+main.addEventListener('mouseover', function(){
+let  k=2;
+for(let el of arr){
+k++;
+el.style.transition='all 0.2s linear';
+el.style.left='130px';
+el.style.backgroundImage='url(side'+k+'.png)';
+el.style.backgroundSize='126px';
+el.style.backgroundPosition='-68px 87px';
+el.style.top='100px';
+el.style.borderLeft='94px solid #c5818100';
+  el.style.borderRight='94px solid transparent';
+   el.style.borderBottom=' 188px solid #cccccc26';
+}
+
+
+})
+main.addEventListener('mouseleave', function(){
+for(let el of arr){
+
+el.style.backgroundImage='';
+el.style.left='140px';
+el.style.top='140px'
+el.style.backgroundSize='66px';
+el.style.backgroundPosition='-35px 54px';
+  el.style.borderLeft='74px solid #c5818100';
+  el.style.borderRight='74px solid transparent';
+   el.style.borderBottom=' 148px solid #cccccc26';
+
+}
+
+
+})
+
+
+
+</script>
+		</body>
+		</html>
+
+
+
+		
+
+		
+
+
+
